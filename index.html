@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Assistant</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+      body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background-color: #f8c8dc; /* Soft pink background */
+        color: #ff77b4; /* Pink text */
+        text-align: center;
+        padding: 50px;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3em;
+        color: #ff6b81; /* Lighter pink */
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        font-size: 1.5em;
+        padding: 10px;
+        margin: 20px 0;
+        border: 2px solid #ff77b4;
+        border-radius: 8px;
+        width: 60%;
+        max-width: 400px;
+        outline: none;
+        transition: 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        border-color: #ff4b6e; /* Focus effect */
+        box-shadow: 0 0 10px #ff4b6e;
+      }
+
+      button {
+        font-size: 1.5em;
+        padding: 15px 30px;
+        background-color: #ff77b4; /* Pink button */
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #ff4b6e; /* Hover effect */
+      }
+
+      #response {
+        margin-top: 30px;
+        font-size: 1.2em;
+        color: #ff4b6e;
+      }
+
+      /* Sparkles effect */
+      .sparkles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://i.pinimg.com/originals/c9/3b/71/c93b710dbb9a12055ed01f1bfc18ecb3.gif');
+        background-size: cover;
+        z-index: -1;
+        opacity: 0.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sparkles"></div>
+    <h1>Chat Assistant</h1>
+    <input id="query" type="text" placeholder="Ask a question">
+    <button onclick="sendQuery()">Send</button>
+    <div id="response"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      function sendQuery() {
+        const query = document.getElementById('query').value;
+
+        // Check if query is not empty
+        if(query.trim() === "") {
+          document.getElementById('response').innerText = "Please enter a question!";
+          return;
+        }
+
+        // Call the Flask backend here using axios
+        axios.post('http://127.0.0.1:5000/query', { query })
+          .then(response => {
+            console.log(response.data);  // Debugging: Print response data in the browser console
+
+            // Check if the response contains a manager or error and display it
+            if (response.data.employees) {
+              document.getElementById('response').innerText="Employees:" + response.data.employees.join(",");
+            } else if (response.data.manager) {
+              document.getElementById('response').innerText = "Manager: " + response.data.manager;
+            } else if (response.data.message) {
+              document.getElementById('response').innerText = response.data.message;
+            } else if (response.data.total_salary_expense  !== undefined) {
+              if (response.data.total_salary_expense === 0) {
+                document.getElementById('response').innerText = "No salary data found for this department.";
+              } else {
+                document.getElementById('response').innerText = "Total Salary: " + response.data.total_salary_expense;
+              }
+            } else if (response.data.error) {
+              document.getElementById('response').innerText = "Error: " + response.data.error;
+            }else{
+              document.getElementById('response').innerText = "An unexpected error occurred.";
+            }
+          })
+          .catch(error => {
+            if(error.response && error.response.data && error.response.data.error){
+              document.getElementById('response').innerText = "Error: " + error.response.data.error;
+            } else {
+                document.getElementById('response').innerText = "Error: " + error.message;
+            }
+          });
+      }
+    </script>
+  </body>
+</html>
