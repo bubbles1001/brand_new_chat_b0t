@@ -63,11 +63,11 @@ Frontend will be available at http://localhost:3000/
 
 # 1. Home Page
 # Endpoint: GET /
-# Returns a confirmation message that the server is running.
+ Returns a confirmation message that the server is running.
 
 # 2. Query API
 # Endpoint: POST /query
-# Request Format:
+ Request Format:
 ```
  {
    "query": "Who is the manager of sales?"
