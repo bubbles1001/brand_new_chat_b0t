@@ -50,14 +50,14 @@ python create_database.py
 ```
 python app.py
 ```
-# Backend will start running at http://127.0.0.1:5000/
+### Backend will start running at http://127.0.0.1:5000/
 
 # 6. Start the Frontend
 ```
 cd sensor
 node server.js
 ```
-# Frontend will be available at http://localhost:3000/
+### Frontend will be available at http://localhost:3000/
 
 # API Endpoints
 
@@ -69,22 +69,22 @@ node server.js
 # Endpoint: POST /query
 # Request Format:
 ```
-# {
-#   "query": "Who is the manager of sales?"
-# }
+ {
+   "query": "Who is the manager of sales?"
+ }
 ```
 # Response Format:
 ```
-# {
-#   "manager": "Alice"
-# }
+ {
+   "manager": "Alice"
+ }
 ```
 # 3. Error Handling
 # If the query is invalid, the API returns an appropriate error message.
 ```
-# {
-#   "error": "Please specify a department for the salary query."
-# }
+ {
+   "error": "Please specify a department for the salary query."
+ }
 ```
 # File Structure
 ```
