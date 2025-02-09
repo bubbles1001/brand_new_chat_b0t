@@ -27,28 +27,36 @@ This project is a Flask-based **employee management system** that provides an in
 - SQLite
 
 ## **Installation and Setup**
-# 1. Clone the Repository
-git clone https://github.com/yourusername/your-repo.git
+```# 1. Clone the Repository
+git clone https://github.com/bubbles1001/brand_new_chat_b0t
 cd your-repo
+```
 
 # 2. Create a Virtual Environment
+```
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate    # On Windows
-
+```
 # 3. Install Dependencies
+```
 pip install -r requirements.txt
-
+```
 # 4. Setup the Database
+```
 python create_database.py
-
+```
 # 5. Run the Flask Backend
+```
 python app.py
+```
 # Backend will start running at http://127.0.0.1:5000/
 
 # 6. Start the Frontend
+```
 cd sensor
 node server.js
+```
 # Frontend will be available at http://localhost:3000/
 
 # API Endpoints
@@ -60,21 +68,26 @@ node server.js
 # 2. Query API
 # Endpoint: POST /query
 # Request Format:
+```
 # {
 #   "query": "Who is the manager of sales?"
 # }
+```
 # Response Format:
+```
 # {
 #   "manager": "Alice"
 # }
-
+```
 # 3. Error Handling
 # If the query is invalid, the API returns an appropriate error message.
+```
 # {
 #   "error": "Please specify a department for the salary query."
 # }
-
+```
 # File Structure
+```
 # ├── app.py                # Flask API Backend
 # ├── create_database.py    # SQLite Database Setup
 # ├── company.db            # SQLite Database File
@@ -85,7 +98,7 @@ node server.js
 # │   ├── favicon.ico       # Favicon
 # ├── README.md             # Project Documentation
 # └── requirements.txt      # Python Dependencies
-
+```
 # Future Enhancements
 # - Add authentication and user roles.
 # - Improve NLP processing with advanced models.
