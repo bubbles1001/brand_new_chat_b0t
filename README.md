@@ -105,7 +105,7 @@ Frontend will be available at http://localhost:3000/
 - Implement a more responsive and interactive UI though the colour is pink we can make it more vibrant .
 
 # Contributors
-# Name - V Sai Pradyumna  -## **Contributors**
+# Name - V Sai Pradyumna  
 👩‍💻 **Bubbles1001** - [GitHub Profile](https://github.com/bubbles1001)
 
 # License
