@@ -50,14 +50,14 @@ python create_database.py
 ```
 python app.py
 ```
-### Backend will start running at http://127.0.0.1:5000/
+Backend will start running at http://127.0.0.1:5000/
 
 # 6. Start the Frontend
 ```
 cd sensor
 node server.js
 ```
-### Frontend will be available at http://localhost:3000/
+Frontend will be available at http://localhost:3000/
 
 # API Endpoints
 
@@ -100,9 +100,9 @@ node server.js
 # └── requirements.txt      # Python Dependencies
 ```
 # Future Enhancements
-# - Add authentication and user roles.
-# - Improve NLP processing with advanced models.
-# - Implement a more responsive and interactive UI though the colour is pink we can make it more vibrant .
+- Add authentication and user roles.
+- Improve NLP processing with advanced models.
+- Implement a more responsive and interactive UI though the colour is pink we can make it more vibrant .
 
 # Contributors
 # Name - V Sai Pradyumna  -## **Contributors**
