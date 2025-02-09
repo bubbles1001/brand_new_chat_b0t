@@ -20,7 +20,7 @@ This project is a Flask-based **employee management system** that provides an in
 
 ### **Frontend**
 - HTML
-- CSS
+- CSS (**Pinky Page UI** 🎀)
 - JavaScript (Axios for API requests)
 
 ### **Database**
